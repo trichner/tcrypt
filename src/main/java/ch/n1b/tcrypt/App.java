@@ -51,23 +51,25 @@ public class App {
 		printUsage();
 	}
 
+	private static void printEncUsage() {
+		System.out.printf("Usage: tcrypt enc <property key> <filename>%n");
+	}
+
 	private static void encrypt(String[] args, char[] password) {
 
-		if (args.length <= 1) {
-			System.out.printf("Usage: tcrypt enc <property key> <filename>%n");
-			return;
+		if (args.length <= 2) {
+			printEncUsage();
+			System.exit(1);
 		}
 
 		String propertyKey = args[1];
+		String filename = args[2];
 
-		InputStream is = System.in;
-		if (args.length >= 3) {
-			String filename = args[2];
-			try {
-				is = new FileInputStream(filename);
-			} catch (FileNotFoundException e) {
-				panic("File '%s' not found.%n", filename);
-			}
+		InputStream is = null;
+		try {
+			is = new FileInputStream(filename);
+		} catch (FileNotFoundException e) {
+			panic("File '%s' not found.%n", filename);
 		}
 
 		String plaintext = null;
@@ -94,23 +96,25 @@ public class App {
 		System.out.println(ciphertext);
 	}
 
+	private static void printDecUsage() {
+		System.out.printf("Usage: tcrypt dec <property key> <filename>%n");
+	}
+
 	private static void decrypt(String[] args, char[] password) {
 
-		if (args.length <= 1) {
-			System.out.printf("Usage: tcrypt dec <property key> <filename>%n");
-			return;
+		if (args.length <= 2) {
+			printDecUsage();
+			System.exit(1);
 		}
 
 		String propertyKey = args[1];
+		String filename = args[2];
 
 		InputStream is = System.in;
-		if (args.length >= 3) {
-			String filename = args[2];
-			try {
-				is = new FileInputStream(filename);
-			} catch (FileNotFoundException e) {
-				panic("File '%s' not found.%n", filename);
-			}
+		try {
+			is = new FileInputStream(filename);
+		} catch (FileNotFoundException e) {
+			panic("File '%s' not found.%n", filename);
 		}
 
 		String ciphertext = null;
@@ -163,7 +167,6 @@ public class App {
 	}
 
 	private static void printUsage() {
-
 		System.out.printf("Usage: tcrypt ( enc | dec ) [filename]%n");
 	}
 
