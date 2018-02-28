@@ -1,0 +1,55 @@
+<assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2 http://maven.apache.org/xsd/assembly-1.1.2.xsd">
+    <id>bin</id>
+    <formats>
+        <format>dir</format>
+        <format>tar.gz</format>
+        <format>zip</format>
+    </formats>
+
+    <includeBaseDirectory>false</includeBaseDirectory>
+
+    <!-- Adds the dependencies of our application to the lib directory -->
+    <dependencySets>
+        <dependencySet>
+            <!--
+                Project artifact is not copied under library directory since
+                it is added to the root directory of the zip package.
+            -->
+            <useProjectArtifact>false</useProjectArtifact>
+            <outputDirectory>lib</outputDirectory>
+            <unpack>false</unpack>
+        </dependencySet>
+    </dependencySets>
+
+    <fileSets>
+        <fileSet>
+            <directory>${project.basedir}</directory>
+            <outputDirectory></outputDirectory>
+            <includes>
+                <include>Readme*</include>
+            </includes>
+        </fileSet>
+        <fileSet>
+            <!-- default: src/main/scripts/ -->
+            <directory>${project.build.scriptSourceDirectory}</directory>
+            <outputDirectory></outputDirectory>
+            <includes>
+                <include>*</include>
+            </includes>
+            <fileMode>755</fileMode>
+        </fileSet>
+    </fileSets>
+
+    <!-- include binary -->
+    <files>
+        <file>
+            <source>${project.build.directory}/${project.artifactId}-${project.version}.jar</source>
+            <outputDirectory></outputDirectory>
+            <destName>tcrypt.jar</destName>
+            <fileMode>644</fileMode>
+        </file>
+    </files>
+
+</assembly>

@@ -34,8 +34,6 @@ public class App {
 			panic("No password provided.");
 		}
 
-		//		System.err.println("PW: " + new String(password));
-
 		if ("enc".equals(args[0])) {
 			encrypt(args, password);
 			return;
@@ -45,8 +43,6 @@ public class App {
 			decrypt(args, password);
 			return;
 		}
-
-		// print usage
 
 		printUsage();
 	}

@@ -56,8 +56,8 @@ public class CryptorTest {
 	public void encrypt_str_unicode_pw() throws Exception {
 
 		StringCryptor cryptor = new Cryptor();
-		char[] password = "hüntér12🚀".toCharArray();
-		String message = "The answer to 🦄, the ✨ and everything.";
+		char[] password = "h\u00fcnt\u00e9r12\ud83d\ude80".toCharArray();
+		String message = "The answer to \ud83e\udd84, the \u2728 and everything.";
 		String ciphertext = cryptor.encrypt(password, message);
 
 		String plaintext = cryptor.decrypt(password, ciphertext);
