@@ -19,6 +19,9 @@ import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
 
 /**
+ * This class implements AES-GCM symmetric key encryption with a PBKDF2 derived password.
+ * It provides confidentiality and integrity of the plaintext.
+ *
  * @author Thomas Richner <mail@n1b.ch>
  * @created 2018-02-25
  */

@@ -1,8 +1,11 @@
 package ch.n1b.tcrypt.cryptor;
 
 /**
+ * Generic Exception during encryption/decryption.
+ *
  * @author Thomas Richner <mail@n1b.ch>
  * @created 2018-02-25
+ *
  */
 public class CryptoException extends Exception {
 	public CryptoException() {

@@ -16,6 +16,8 @@ import javax.crypto.NoSuchPaddingException;
 import ch.n1b.tcrypt.utils.HexStringUtils;
 
 /**
+ * Simple class do encrypt and decrypt strings. Threadsafe.
+ *
  * @author Thomas Richner <mail@n1b.ch>
  * @created 2018-02-25
  *
