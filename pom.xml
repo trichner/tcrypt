@@ -16,6 +16,23 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
+         
+    <licenses>
+        <license>
+           <name>MIT License</name>
+           <url>http://www.opensource.org/licenses/mit-license.php</url>
+           <distribution>repo</distribution>
+        </license>
+    </licenses>
+         
+    <developers>
+        <developer>
+           <email>mail@trichner.ch</email>
+           <name>Thomas Richner</name>
+           <url>https://github.com/trichner</url>
+           <id>trichner</id>
+        </developer>
+    </developers>
 
     <dependencies>
 
