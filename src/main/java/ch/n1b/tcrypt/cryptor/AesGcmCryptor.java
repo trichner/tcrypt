@@ -34,7 +34,7 @@ public class AesGcmCryptor {
 	private static final int GCM_IV_BYTES_LENGTH = 12;
 	private static final int GCM_TAG_BYTES_LENGTH = 16;
 
-	private static final int PBKDF2_ITERATIONS = 16384;
+	private static final int PBKDF2_ITERATIONS = 1024;
 
 	private static final byte[] PBKDF2_SALT = hexStringToByteArray("4d3fe0d71d2abd2828e7a3196ea450d4");
 
