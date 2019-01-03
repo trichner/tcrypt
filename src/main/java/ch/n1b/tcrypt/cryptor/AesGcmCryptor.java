@@ -141,7 +141,7 @@ public class AesGcmCryptor {
 		// initialise random and generate IV (initialisation vector)
 		SecretKey key = deriveAesKey(password, PBKDF2_SALT, AES_KEY_BITS_LENGTH);
 		final byte[] iv = new byte[GCM_IV_BYTES_LENGTH];
-		SecureRandom random = SecureRandom.getInstanceStrong();
+		SecureRandom random  = new SecureRandom();
 		random.nextBytes(iv);
 
 		// encrypt
